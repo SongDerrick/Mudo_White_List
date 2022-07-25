@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Keeper</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <p>Table-Tennis Game!</p>
+    <img id='ttimage'
+        src="https://postfiles.pstatic.net/MjAyMjA2MjVfMjI2/MDAxNjU2MTYyMzQ1MDU5.tXiNyRdLhKnfhMtrZGu_sezUscG46UiU8zKny0f6kO0g.sdV5zOUVCnRDiAKWGzWrq7khvJTV1DDfCSIDGCYSWv0g.JPEG.lihp45b5/7052584b-be74-4049-b64a-83dd69947ed6.jpg?type=w966"
+        alt="table-tennis">
+    <h1><span id="p1Display">0</span> to <span id="p2Display">0</span></h1>
+
+    <span>Select Winning Score: </span><select name="winningScore" id="playto">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="7">7</option>
+        <option value="9">9</option>
+        <option value="11">11</option>
+        <option value="13">13</option>
+    </select>
+    <p></p>
+    <button id="p1Button">+1 Player One</button>
+    <button id="p2Button">+1 Player Two</button>
+    <button id="reset">Reset</button>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
