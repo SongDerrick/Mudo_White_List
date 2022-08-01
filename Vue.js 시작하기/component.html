@@ -7,17 +7,43 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <app-header></app-header>
+        <app-footer></app-footer>
+    </div>
 
+    <div id="app2">
+        <app-header></app-header>
+        <app-footer></app-footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        // var options 
-        var vm = new Vue({
+        // Vue.component('컴포넌트 이름', 컴포넌트 내용);
+        // 전역 컴포넌트!
+        Vue.component('app-header', {
+            template: '<h1>Header</h1>'
+        });
+    
+        new Vue({
             el: '#app',
-            data: {
-                message: 'hi'
+            // 지역 컴포넌트 등록 방식
+            components: {
+                // '키': '값'
+                // '컴포넌트 이름': 컴포넌트 내용,
+                'app-footer': {
+                    template: '<footer>footer</footer>'
+                }
             }
         });
+
+        new Vue({
+            el:'#app2',
+            components: {
+                'app-footer': {
+                    template: '<footer>footer</footer>'
+                }
+            }
+        })
     </script>
 </body>
 </html>
