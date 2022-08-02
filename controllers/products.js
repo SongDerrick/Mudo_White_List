@@ -20,14 +20,16 @@ exports.postAddProduct = (req, res, next)=>{
 exports.getProducts = (req, res, next)=>{
     //console.log(adminData.products);
     //res.sendFile(path.join(rootDir, 'views', 'shop.html'));
-    const products = Product.fetchAll();
-    res.render('shop', {
-        prods: products, 
-        docTitle: 'Shop', 
-        path:'/', 
-        pageTitle: 'Shop', 
-        hasProducts: products.length > 0,
-        activeShop: true,
-        productCSS: true
+    const products = Product.fetchAll((products) => {
+        res.render('shop', {
+            prods: products, 
+            docTitle: 'Shop', 
+            path:'/', 
+            pageTitle: 'Shop', 
+            hasProducts: products.length > 0,
+            activeShop: true,
+            productCSS: true
+        });
     });
+    
 }
