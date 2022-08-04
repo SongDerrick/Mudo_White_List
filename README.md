@@ -7,3 +7,8 @@
 templating done
 * pug
 * handlebars
+* ejs
+
+---
+
+mvc structure
