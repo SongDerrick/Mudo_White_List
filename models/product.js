@@ -26,6 +26,7 @@ module.exports = class Product {
     } // constructing a object with title t
 
     save() {
+        this.id = Math.random().toString();
         //products.push(this)
         getProductsFromFile(products => {
             products.push(this);
@@ -39,6 +40,13 @@ module.exports = class Product {
         getProductsFromFile(cb);
         //return products;
     } // it is static, it is called directly on the class no t on an instantiated object
+
+    static findById(id, cb){
+        getProductsFromFile(products => {
+            const product = products.find(p => p.id === id);
+            cb(product);
+        });
+    }
 
 
 }

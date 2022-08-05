@@ -10,6 +10,8 @@ router.get("/",shopController.getIndex);
 
 router.get("/products", shopController.getProducts);
 
+router.get("/products/:productID", shopController.getProduct); // dynamic routing has to go behind specific middleware
+
 router.get("/cart", shopController.getCart);
 
 router.get("/orders", shopController.getOrders);
