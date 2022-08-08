@@ -33,6 +33,20 @@
           // }
           return this.isError ? 'warning' : null;
         }
+        
+//         *템플릿문법
+-데이터 바인딩 {{}}
+-디렉티브 v- 
+
+v-if와 v-show : 요소상에서 v-if는 아예 사라지고 v-show는 none으로 표시됨.
+v-on : 키보드와 마우스 입력에 따른 실행/ 
+ex) v-on:keyon.enter="methods" -> enter 키를 누를 때 methods 실행
+
+watch 속성과 computed 속성
+computed -> 연산, 텍스트 / 데이터 속성을 가져오려면 this 이용
+watch -> 무거운 동작, 데이터 요청에 적합(methods 내용 엮기 좋음)
+
+권한 필요하면 명령어 앞에 sudo
       }
     });
   </script>
