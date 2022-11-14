@@ -2,25 +2,22 @@ const path = require("path");
 
 const express = require("express");
 
-const rootDir = require('../utils/path');
-const adminData = require('./admin');
-const admin = require("./admin");
+const shopController = require('../controllers/shop')
 
 const router = express.Router();
 
-router.get("/",(req, res, next)=>{
-    //console.log(adminData.products);
-    //res.sendFile(path.join(rootDir, 'views', 'shop.html'));
-    const products = adminData.products;
-    res.render('shop', {
-        prods: products, 
-        docTitle: 'Shop', 
-        path:'/', 
-        pageTitle: 'Shop', 
-        hasProducts: products.length > 0,
-        activeShop: true,
-        productCSS: true
-    });
-});
+router.get("/",shopController.getIndex);
+
+router.get("/products", shopController.getProducts);
+
+router.get("/products/:productID", shopController.getProduct); // dynamic routing has to go behind specific middleware
+
+router.get("/cart", shopController.getCart);
+
+router.post('/cart', shopController.postCart);
+
+router.get("/orders", shopController.getOrders);
+
+router.get("/checkout", shopController.getCheckout);
 
 module.exports = router;

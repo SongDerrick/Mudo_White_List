@@ -4,10 +4,11 @@ const express = require("express"); // requiring express.js
 const bodyParser = require("body-parser"); // requiring body parser to get POST data
 //const expressHbs = require('express-handlebars'); // requiring handle bars
 
-const adminData = require("./routes/admin"); // requring admin.js -> get / post requests handled
+const adminRoutes = require("./routes/admin"); // requring admin.js -> get / post requests handled
 
 const shopRoutes = require("./routes/shop"); // requring shop.js -> get / post requests handled
 
+const errorController = require('./controllers/error');
 
 const app = express(); // app = express();
 
@@ -29,13 +30,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRoutes);
 
 app.use(shopRoutes); // order matters
 
-app.use("/", (req, res, next)=>{
-    //res.status(404).sendFile(path.join(__dirname, 'views','404.html'));
-    res.status(404).render('404',{pageTitle: 'Page Not Found'})
-});
+app.use(errorController.get404);
 
 app.listen(3000);
